@@ -14,11 +14,11 @@ const App = () => {
 const Rating = () => {
     return (
         <>
-            <p>star</p>
-            <p>star</p>
-            <p>star</p>
-            <p>star</p>
-            <p>star</p>
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+            <Star />
         </>
     );
 };
@@ -34,6 +34,10 @@ const Accordion = () => {
             </ul>
         </>
     );
+};
+
+const Star = () => {
+    return <p>Star</p>;
 };
 
 export default App;
