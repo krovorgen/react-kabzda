@@ -1,43 +1,27 @@
-import React from 'react';
+import React, { FC } from 'react';
+
+import Accordion from './components/Accordion';
+import Rating from './components/Rating';
+
 import './App.css';
 
 const App = () => {
     return (
         <>
-            It is APP component
-            <Rating />
-            <Accordion />
+            <PageTitle title="It's a React componen" />
+            <Rating value={1} />
+            <Accordion title="Меню" />
+            <Rating value={3} />
         </>
     );
 };
 
-const Rating = () => {
-    return (
-        <>
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-        </>
-    );
-};
+interface IPageTitleProps {
+    title: string;
+}
 
-const Accordion = () => {
-    return (
-        <>
-            <h3>Menu</h3>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-        </>
-    );
-};
-
-const Star = () => {
-    return <p>Star</p>;
+const PageTitle: FC<IPageTitleProps> = ({ title }) => {
+    return <h1>{title}</h1>;
 };
 
 export default App;
