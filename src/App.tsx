@@ -10,8 +10,7 @@ const App = () => {
         <>
             <PageTitle title="It's a React componen" />
             <Rating value={1} />
-            <Accordion title="Меню" />
-            <Rating value={3} />
+            <Accordion title="Меню" collapsed={true} />
         </>
     );
 };

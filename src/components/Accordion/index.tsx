@@ -2,13 +2,14 @@ import React, { FC } from 'react';
 
 interface IAccordionProps {
     title: string;
+    collapsed: boolean;
 }
 
-const Accordion: FC<IAccordionProps> = ({ title }) => {
+const Accordion: FC<IAccordionProps> = ({ title, collapsed }) => {
     return (
         <>
             <AccordionTitle title={title} />
-            <AccordionBody />
+            {!collapsed ? <AccordionBody /> : ''}
         </>
     );
 };

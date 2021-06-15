@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 
 interface IRatingProps {
-    value: number;
+    value: 0 | 1 | 2 | 3 | 4 | 5;
 }
 
 const Rating: FC<IRatingProps> = ({ value }) => {
