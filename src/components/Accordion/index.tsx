@@ -3,23 +3,25 @@ import React, { FC } from 'react';
 interface IAccordionProps {
     title: string;
     collapsed: boolean;
+    callBack: (value: boolean) => void;
 }
 
-const Accordion: FC<IAccordionProps> = ({ title, collapsed }) => {
+const Accordion: FC<IAccordionProps> = ({ title, collapsed, callBack }) => {
     return (
         <>
-            <AccordionTitle title={title} />
-            {!collapsed ? <AccordionBody /> : ''}
+            <AccordionTitle title={title} callBack={() => callBack(!collapsed)} />
+            {!collapsed && <AccordionBody />}
         </>
     );
 };
 
 interface IAccordionTitleProps {
     title: string;
+    callBack: () => void;
 }
 
-const AccordionTitle: FC<IAccordionTitleProps> = ({ title }) => {
-    return <h3>{title}</h3>;
+const AccordionTitle: FC<IAccordionTitleProps> = ({ title, callBack }) => {
+    return <h3 onClick={callBack}>{title}</h3>;
 };
 
 const AccordionBody = () => {

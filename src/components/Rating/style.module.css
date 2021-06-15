@@ -1,0 +1,18 @@
+.star {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    background-image: url("../../images/disable-star.png");
+}
+
+.star:not(:last-child) {
+    margin-right: 5px;
+}
+
+.star--active {
+    opacity: 1;
+    background-image: url("../../images/active-star.png");
+}
