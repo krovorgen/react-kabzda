@@ -1,9 +1,13 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
-interface IOnOffProps {}
+export type ActiveColorType = 'Active' | 'Disable';
 
-const OnOff: FC<IOnOffProps> = () => {
-    let [activeColor, setActiveColor] = useState<'Active' | 'Disable'>('Active');
+interface IUncontrolledOnOffProps {
+    activeColor: ActiveColorType;
+    setActiveColor: (value: ActiveColorType) => void;
+}
+
+const UncontrolledOnOff: FC<IUncontrolledOnOffProps> = ({ activeColor, setActiveColor }) => {
     const onStyle = {
         background: 'none',
         padding: '4px',
@@ -23,12 +27,21 @@ const OnOff: FC<IOnOffProps> = () => {
         border: '1px solid #000',
         backgroundColor: activeColor === 'Active' ? 'green' : 'red',
     };
+
+    const onClicked = () => {
+        setActiveColor('Active');
+    };
+
+    const offClicked = () => {
+        setActiveColor('Disable');
+    };
+
     return (
         <div>
-            <button style={onStyle} onClick={() => setActiveColor('Active')}>
+            <button style={onStyle} onClick={onClicked}>
                 ON
             </button>
-            <button style={offStyle} onClick={() => setActiveColor('Disable')}>
+            <button style={offStyle} onClick={offClicked}>
                 OFF
             </button>
             <div style={indicatorStyle}></div>
@@ -36,4 +49,4 @@ const OnOff: FC<IOnOffProps> = () => {
     );
 };
 
-export default OnOff;
+export default UncontrolledOnOff;
