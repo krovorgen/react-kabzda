@@ -2,10 +2,10 @@ import React, { FC, useState } from 'react';
 
 import Accordion from './components/Accordion';
 import Rating, { RatingValueType } from './components/Rating';
-import OnOff from './components/OnOff';
+import OnOff, { ActiveColorType } from './components/OnOff';
 import UncontrolledAccordion from './components/UncontrolledAccordion';
 import UncontrolledRating from './components/UncontrolledRating';
-import UncontrolledOnOff, { ActiveColorType } from './components/UncontrolledOnOff';
+import UncontrolledOnOff from './components/UncontrolledOnOff';
 
 import './App.css';
 
@@ -19,7 +19,7 @@ const App = () => {
             <PageTitle title="Uncontrolled component" />
             <UncontrolledAccordion title={'Click me!'} />
             <UncontrolledRating />
-            <UncontrolledOnOff activeColor={activeColor} setActiveColor={setActiveColor} />
+            <UncontrolledOnOff />
 
             <PageTitle title="Controlled component" />
             <Accordion
@@ -28,7 +28,7 @@ const App = () => {
                 callBack={setAccordionCollapsed}
             />
             <Rating value={ratingValue} onClick={setRatingValue} />
-            <OnOff />
+            <OnOff activeColor={activeColor} setActiveColor={setActiveColor} />
         </div>
     );
 };

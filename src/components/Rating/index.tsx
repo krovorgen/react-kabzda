@@ -3,7 +3,7 @@ import styles from '../UncontrolledRating/style.module.css';
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
-interface IRatingProps {
+export interface IRatingProps {
     value: RatingValueType;
     onClick: (value: RatingValueType) => void;
 }
