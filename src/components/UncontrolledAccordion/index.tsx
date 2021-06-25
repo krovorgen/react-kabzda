@@ -1,11 +1,14 @@
 import React, { FC, useState } from 'react';
 
-interface IUncontrolledAccordionProps {
+export interface IUncontrolledAccordionProps {
     title: string;
+    defaultStatus?: boolean;
 }
 
-const UncontrolledAccordion: FC<IUncontrolledAccordionProps> = ({ title }) => {
-    const [disclosure, setDisclosure] = useState<boolean>(true);
+const UncontrolledAccordion: FC<IUncontrolledAccordionProps> = ({ title, defaultStatus }) => {
+    const [disclosure, setDisclosure] = useState<boolean>(
+        defaultStatus !== undefined ? defaultStatus : true
+    );
     return (
         <>
             <AccordionTitle title={title} setDisclosure={() => setDisclosure(!disclosure)} />
@@ -19,8 +22,16 @@ interface IUncontrolledAccordionTitleProps {
     setDisclosure: () => void;
 }
 
+const titleStyle = {
+    cursor: 'pointer',
+};
+
 const AccordionTitle: FC<IUncontrolledAccordionTitleProps> = ({ title, setDisclosure }) => {
-    return <h3 onClick={setDisclosure}>{title}</h3>;
+    return (
+        <h3 style={titleStyle} onClick={setDisclosure}>
+            {title}
+        </h3>
+    );
 };
 
 const AccordionBody = () => {

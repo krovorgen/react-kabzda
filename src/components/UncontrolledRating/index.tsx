@@ -4,7 +4,7 @@ import { RatingValueType } from '../Rating';
 
 import styles from './style.module.scss';
 
-interface IUncontrolledRatingProps {}
+export interface IUncontrolledRatingProps {}
 
 const UncontrolledRating: FC<IUncontrolledRatingProps> = () => {
     const [value, setValue] = useState<RatingValueType>(0);

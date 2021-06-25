@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 
-interface IUncontrolledOnOffOnOffProps {}
+export interface IUncontrolledOnOffOnOffProps {}
 
 const UncontrolledOnOffOnOff: FC<IUncontrolledOnOffOnOffProps> = () => {
     let [activeColor, setActiveColor] = useState<'Active' | 'Disable'>('Active');
