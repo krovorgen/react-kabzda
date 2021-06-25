@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 
-interface IAccordionProps {
+import styles from './style.module.scss';
+
+export interface IAccordionProps {
     title: string;
     collapsed: boolean;
     callBack: (value: boolean) => void;
@@ -21,7 +23,11 @@ interface IAccordionTitleProps {
 }
 
 const AccordionTitle: FC<IAccordionTitleProps> = ({ title, callBack }) => {
-    return <h3 onClick={callBack}>{title}</h3>;
+    return (
+        <h3 className={styles['accordion__title']} onClick={callBack}>
+            {title}
+        </h3>
+    );
 };
 
 const AccordionBody = () => {

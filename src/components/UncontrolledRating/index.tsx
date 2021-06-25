@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 
 import { RatingValueType } from '../Rating';
 
-import styles from './style.module.css';
+import styles from './style.module.scss';
 
 interface IUncontrolledRatingProps {}
 

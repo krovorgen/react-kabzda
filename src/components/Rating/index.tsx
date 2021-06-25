@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import styles from '../UncontrolledRating/style.module.css';
+
+import styles from './style.module.scss';
 
 export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
