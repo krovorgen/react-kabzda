@@ -14,6 +14,14 @@ const App = () => {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true);
     let [activeColor, setActiveColor] = useState<ActiveColorType>('Active');
 
+    let accordionData = [
+        { value: 1, title: '1' },
+        { value: 2, title: '2' },
+        { value: 3, title: '3' },
+    ];
+
+    const onClickAccordion = (value: any) => console.log(value);
+
     return (
         <div className="app">
             <PageTitle title="Uncontrolled component" />
@@ -26,6 +34,8 @@ const App = () => {
                 title="Меню"
                 collapsed={accordionCollapsed}
                 callBack={setAccordionCollapsed}
+                accordionData={accordionData}
+                onClick={onClickAccordion}
             />
             <Rating value={ratingValue} onClick={setRatingValue} />
             <OnOff activeColor={activeColor} setActiveColor={setActiveColor} />
