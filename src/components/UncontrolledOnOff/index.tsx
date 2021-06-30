@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 
 export interface IUncontrolledOnOffOnOffProps {}
 
-const UncontrolledOnOffOnOff: FC<IUncontrolledOnOffOnOffProps> = () => {
+const UncontrolledOnOff: FC<IUncontrolledOnOffOnOffProps> = () => {
     let [activeColor, setActiveColor] = useState<'Active' | 'Disable'>('Active');
     const onStyle = {
         background: 'none',
@@ -36,4 +36,4 @@ const UncontrolledOnOffOnOff: FC<IUncontrolledOnOffOnOffProps> = () => {
     );
 };
 
-export default UncontrolledOnOffOnOff;
+export default UncontrolledOnOff;

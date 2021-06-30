@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Story, Meta } from '@storybook/react';
-import UncontrolledOnOffOnOff, { IUncontrolledOnOffOnOffProps } from './index';
+import UncontrolledOnOff, { IUncontrolledOnOffOnOffProps } from './index';
 
 export default {
     title: 'Components/UncontrolledOnOffOnOff',
-    component: UncontrolledOnOffOnOff,
+    component: UncontrolledOnOff,
 } as Meta;
 
-const Template: Story<IUncontrolledOnOffOnOffProps> = (args) => (
-    <UncontrolledOnOffOnOff {...args} />
-);
+const Template: Story<IUncontrolledOnOffOnOffProps> = (args) => <UncontrolledOnOff {...args} />;
 
 export const change = Template.bind({});

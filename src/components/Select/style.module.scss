@@ -1,0 +1,28 @@
+.select {
+    position: relative;
+    width: fit-content;
+
+    &__title {
+        display: inline-block;
+        min-width: 60px;
+        min-height: 20px;
+        border: 1px solid #000;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &__items {
+        position: absolute;
+        border: 1px solid #000;
+    }
+
+    &__item {
+        width: 100%;
+        cursor: pointer;
+
+        &--selected {
+            color: #fff;
+            background-color: #00f;
+        }
+    }
+}
