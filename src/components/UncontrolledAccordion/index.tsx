@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useReducer } from 'react';
+import reducer from './reducer';
 
 export interface IUncontrolledAccordionProps {
     title: string;
@@ -6,13 +7,15 @@ export interface IUncontrolledAccordionProps {
 }
 
 const UncontrolledAccordion: FC<IUncontrolledAccordionProps> = ({ title, defaultStatus }) => {
-    const [disclosure, setDisclosure] = useState<boolean>(
-        defaultStatus !== undefined ? defaultStatus : true
+    let [state, dispatch] = useReducer(
+        reducer,
+        defaultStatus ? { collapsed: defaultStatus } : { collapsed: true }
     );
+
     return (
         <>
-            <AccordionTitle title={title} setDisclosure={() => setDisclosure(!disclosure)} />
-            {!disclosure && <AccordionBody />}
+            <AccordionTitle title={title} setDisclosure={() => dispatch({ type: 'TOGGLE' })} />
+            {!state.collapsed && <AccordionBody />}
         </>
     );
 };
