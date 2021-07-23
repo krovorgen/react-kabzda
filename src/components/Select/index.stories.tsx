@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Story, Meta } from '@storybook/react';
-import Select, { ISelectProps } from './index';
+import { Meta } from '@storybook/react';
+import Select from './index';
 import '../../index.scss';
 
 export default {
