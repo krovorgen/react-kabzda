@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react';
-import { ChangeEvent, memo, useMemo, useState } from 'react';
+import { ChangeEvent, FC, memo, useCallback, useMemo, useState } from 'react';
 
 export default {
     title: 'UseMemo demo',
@@ -77,3 +77,35 @@ export const HelpsToReactMemo = () => {
         </>
     );
 };
+
+export const LikeUseCallback = () => {
+    let [counter, setCounter] = useState(0);
+    const [books, setBooks] = useState<string[]>(Array(10).fill('react doc'));
+
+    const memoizedAddBook = useCallback(() => {
+        console.log(books);
+        setBooks([...books, 'angular doc']);
+    }, [books]);
+
+    return (
+        <>
+            <button onClick={() => setCounter(++counter)}>Click</button>
+            {counter}
+            <Books addBook={memoizedAddBook} />
+        </>
+    );
+};
+
+interface BooksSecretParams {
+    addBook: () => void;
+}
+
+const BooksSecret: FC<BooksSecretParams> = ({ addBook }) => {
+    return (
+        <div>
+            <button onClick={addBook}>add books</button>
+        </div>
+    );
+};
+
+const Books = memo(BooksSecret);
