@@ -2,11 +2,13 @@ import React, { FC, useEffect, useState } from 'react';
 
 import styles from './style.module.scss';
 
-export interface IClockProps {}
+export interface IClockProps {
+    mode?: 'digital' | 'analog';
+}
 
 const getZero = (num: number) => (num < 10 ? '0' + num : num);
 
-const Clock: FC<IClockProps> = () => {
+const Clock: FC<IClockProps> = ({ mode }) => {
     const [date, setDate] = useState(new Date());
 
     useEffect(() => {
@@ -26,7 +28,13 @@ const Clock: FC<IClockProps> = () => {
 
     return (
         <>
-            <span>{hours}</span> : <span>{minutes}</span> : <span>{seconds}</span>
+            {mode === 'digital' ? (
+                <>
+                    <span>{hours}</span> : <span>{minutes}</span> : <span>{seconds}</span>
+                </>
+            ) : (
+                <>ANALOG</>
+            )}
         </>
     );
 };

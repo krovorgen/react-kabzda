@@ -9,6 +9,10 @@ export default {
 
 const Template: Story<IClockProps> = (args) => <Clock {...args} />;
 
-export const ClockExample = () => {
-    return <Clock />;
+export const ClockDigitalExample = () => {
+    return <Clock mode={'digital'} />;
+};
+
+export const ClockAnalogExample = () => {
+    return <Clock mode={'analog'} />;
 };
