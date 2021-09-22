@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Rating from './index';
 import Clock, { IClockProps } from './index';
 
 export default {
