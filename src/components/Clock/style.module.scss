@@ -1,0 +1,119 @@
+.clock {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    text-align: center;
+    color: #444;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+        width: 12px;
+        height: 12px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        background-color: #aaa;
+        transform: translate(-50%, -50%);
+    }
+
+    &__hour {
+        position: absolute;
+        left: 49%;
+        top: 30%;
+        width: 6px;
+        height: 60px;
+        background-color: #222;
+        transform-origin: bottom;
+    }
+
+    &__min {
+        position: absolute;
+        left: 49%;
+        top: 22.5%;
+        width: 4px;
+        height: 80px;
+        background-color: #444;
+        transform-origin: bottom;
+    }
+
+    &__sec {
+        position: absolute;
+        left: 50%;
+        top: 10.5%;
+        width: 2px;
+        height: 118px;
+        background-color: #f00;
+        transform-origin: bottom;
+    }
+
+    span {
+        position: absolute;
+        font-weight: 700;
+    }
+
+    .twelve {
+        left: 46%;
+        top: 10px;
+    }
+
+    .one {
+        right: 26%;
+        top: 10%;
+    }
+
+    .eleven {
+        left: 26%;
+        top: 10%;
+    }
+
+    .two {
+        right: 10%;
+        top: 25%;
+    }
+
+    .three {
+        right: 10px;
+        top: 46%;
+    }
+
+    .four {
+        right: 30px;
+        top: 67%;
+    }
+
+    .five {
+        right: 78px;
+        top: 80%;
+    }
+
+    .six {
+        left: 50%;
+        bottom: 10px;
+    }
+
+    .seven {
+        left: 80px;
+        top: 82%;
+    }
+
+    .eight {
+        left: 30px;
+        top: 67%;
+    }
+
+    .nine {
+        left: 10px;
+        top: 46%;
+    }
+
+    .ten {
+        left: 10%;
+        top: 25%;
+    }
+}

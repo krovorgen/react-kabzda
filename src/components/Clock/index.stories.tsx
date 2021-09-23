@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Clock, { IClockProps } from './index';
+import { Clock, IClockProps } from './index';
 
 export default {
     title: 'Components/Clock',

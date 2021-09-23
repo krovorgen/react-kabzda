@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
-
-import styles from './style.module.scss';
+import { DigitalClockView } from './DigitalClockView';
+import { AnalogClockView } from './AnalogClockView';
 
 export interface IClockProps {
     mode?: 'digital' | 'analog';
@@ -8,7 +8,7 @@ export interface IClockProps {
 
 const getZero = (num: number) => (num < 10 ? '0' + num : num);
 
-const Clock: FC<IClockProps> = ({ mode }) => {
+export const Clock: FC<IClockProps> = ({ mode }) => {
     const [date, setDate] = useState(new Date());
 
     useEffect(() => {
@@ -29,14 +29,20 @@ const Clock: FC<IClockProps> = ({ mode }) => {
     return (
         <>
             {mode === 'digital' ? (
-                <>
-                    <span>{hours}</span> : <span>{minutes}</span> : <span>{seconds}</span>
-                </>
+                <DigitalClockView seconds={seconds} minutes={minutes} hours={hours} />
             ) : (
-                <>ANALOG</>
+                <AnalogClockView date={date} />
             )}
         </>
     );
 };
 
-export default Clock;
+export type DigitalClockViewType = {
+    hours: string | number;
+    minutes: string | number;
+    seconds: string | number;
+};
+
+export type AnalogClockViewType = {
+    date: Date;
+};
