@@ -55,3 +55,57 @@ export const ExampleSetTimeout = () => {
         </>
     );
 };
+
+export const ResetEffectExample = () => {
+    let [counter, setCounter] = useState(1);
+    console.log('render');
+
+    useEffect(() => {
+        console.log('effect occurred');
+
+        return () => {
+            console.log('reset effect');
+        };
+    }, []);
+
+    return (
+        <>
+            <div>{counter}😅</div>
+            <button onClick={() => setCounter(++counter)}>+</button>
+        </>
+    );
+};
+
+export const KeysTrackerExample = () => {
+    let [text, setText] = useState('');
+    console.log('Component rendered with ' + text);
+
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key);
+            // setText((state) => state + ' ' + e.key);
+            setText(text + ' ' + e.key);
+        };
+        window.document.addEventListener('keypress', handler);
+
+        return () => {
+            window.document.removeEventListener('keypress', handler);
+        };
+    }, [text]);
+
+    return <>{text}😅</>;
+};
+
+export const SetTimeoutExample = () => {
+    let [text, setText] = useState('');
+
+    useEffect(() => {
+        const idTimeout = setTimeout(() => {
+            setText('3 seconds passed');
+        }, 3000);
+
+        return () => clearTimeout(idTimeout);
+    }, []);
+
+    return <>{text}😅</>;
+};
