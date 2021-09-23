@@ -6,19 +6,19 @@ import styles from './style.module.scss';
 export const AnalogClockView: FC<AnalogClockViewType> = ({ date }) => {
     return (
         <div className={styles['clock']}>
-            <div
+            <span
                 className={styles['clock__hour']}
                 style={{
                     transform: `rotateZ(${date.getHours() * 30}deg)`,
                 }}
             />
-            <div
+            <span
                 className={styles['clock__min']}
                 style={{
                     transform: `rotateZ(${date.getMinutes() * 6}deg)`,
                 }}
             />
-            <div
+            <span
                 className={styles['clock__sec']}
                 style={{
                     transform: `rotateZ(${date.getSeconds() * 6}deg)`,
