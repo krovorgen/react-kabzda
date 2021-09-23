@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { AnalogClockViewType } from './index';
 
 import styles from './style.module.scss';
